@@ -42,7 +42,7 @@ def display():
             temp = temp.split()
             for i in temp:
                 if password==i:
-                    print("logged in Successfully ...")
+                    print("logged in Successfully ...\n\n")
 
                     def login():
 
@@ -51,7 +51,7 @@ def display():
                               "2. Student Growth Analysis \n"
                               "3. List Of All Entries in Salary  \n"
                               "4. List Of All Entries in Student  \n"
-                              "6. Exit/Logout")
+                              "6. Exit/Logout\n")
 
                         key = input("Select your Choice ... ")
                         if key == "1":
@@ -85,7 +85,7 @@ def display():
                             # showing the plot
                             fig.show()
 
-                            input("Hit Enter to continue...")
+                            input("Hit Enter to continue...\n\n")
                             login()
 
                         elif key == "2":
@@ -119,7 +119,7 @@ def display():
                             # showing the plot
                             fig.show()
 
-                            input("Hit Enter to continue...")
+                            input("Hit Enter to continue...\n\n")
                             login()
 
 
@@ -127,19 +127,19 @@ def display():
                             with open("Salary.txt", "r+") as salary:
                                 print(salary.read())
 
-                            input("Hit Enter to continue...")
+                            input("Hit Enter to continue...\n\n")
                             login()
 
                         elif key == "4":
                             with open("Student.txt", "r+") as student:
                                 print(student.read())
 
-                            input("Hit Enter to continue...")
+                            input("Hit Enter to continue...\n\n")
                             login()
 
                         elif key == "5":
-                            input("Hit Enter to LogOut...")
-                            print("Loogged out ...")
+                            input("Hit Enter to LogOut...\n\n")
+                            print("Loogged out ...\n\n")
                             display()
 
                     login()
@@ -147,7 +147,7 @@ def display():
 
 
             else:
-                print("Invalid Password")
+                print("Invalid Password\n\n")
 
 
                 display()
@@ -157,7 +157,7 @@ def display():
         with open("datadisplay.txt", "r+") as datadisplay:
 
             print(datadisplay.read())
-            input("Hit Enter to go main menu... ")
+            input("Hit Enter to go main menu... \n\n")
 
             display()
 
@@ -177,11 +177,11 @@ def display():
             data.write(cred)
             data.write("\n")
         count = count+1
-        print("Signup Successful...")
+        print("Signup Successful...\n\n")
         display()
 
     else:
-        print("Invalid Selection... Try again...")
+        print("Invalid Selection... Try again...\n\n")
 
         display()
 
