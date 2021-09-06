@@ -65,7 +65,7 @@ def display():
                                 y_cord.append(i)
                                 continue
                             for i in range(1, x + 1):
-                                a = input()
+                                a = float(input())
                                 x_cord.append(a)
 
                             x_cord_str = str(x_cord)
@@ -83,7 +83,7 @@ def display():
                             fig = px.line(x=x_cord, y=y_cord)
 
                             # showing the plot
-                            fig.show()
+                            fig.write_html('first_figure.html', auto_open=True)
 
                             input("Hit Enter to continue...\n\n")
                             login()
@@ -99,7 +99,7 @@ def display():
                                 y_cord.append(i)
                                 continue
                             for i in range(1, x + 1):
-                                a = input()
+                                a = float(input())
                                 x_cord.append(a)
 
                             x_cord_str = str(x_cord)
@@ -117,7 +117,7 @@ def display():
                             fig = px.line(x=x_cord, y=y_cord)
 
                             # showing the plot
-                            fig.show()
+                            fig.write_html('first_figure.html', auto_open=True)
 
                             input("Hit Enter to continue...\n\n")
                             login()
