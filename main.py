@@ -1,19 +1,15 @@
-'''import plotly.express as px
-
-
-# Creating the Figure instance
-fig = px.line(x=[1, 2, 3], y=[1, 2, 3])
-
-# showing the plot
-fig.show()'''
 import plotly.express as px
 
 def display():
-    print("Analysis :"
+    print("************************\n"
+          "Analysis :\n"
+          "************************"
           "\n"
           "1. Log in \n"
           "2. Signup \n"
-          "3. Users List \n")
+          "3. Users List \n"
+          "************************\n"
+          "------------------------\n")
     choice = input()
 
 
@@ -42,16 +38,20 @@ def display():
             temp = temp.split()
             for i in temp:
                 if password==i:
-                    print("logged in Successfully ...\n\n")
+                    print("logged in Successfully ...\n")
 
                     def login():
 
-                        print("ANALYSIS :\n"
+                        print("************************\n"
+                              "ANALYSIS :\n"
+                              "************************\n"
                               "1. Salary Growth Analysis \n"
                               "2. Student Growth Analysis \n"
                               "3. List Of All Entries in Salary  \n"
                               "4. List Of All Entries in Student  \n"
-                              "6. Exit/Logout\n")
+                              "6. Exit/Logout\n"
+                              "************************\n"
+                              "------------------------")
 
                         key = input("Select your Choice ... ")
                         if key == "1":
@@ -162,8 +162,8 @@ def display():
             display()
 
     elif choice == "2":
-        username = input("Enter a username to signup : ")
-        cred = input("Enter a password :")
+        username = input("Enter a username to signup (No white Space allowed) : ")
+        cred = input("Enter a password :((No white Space allowed))")
         count = 1
         with open('datadisplay.txt', 'a+') as datadisplay:
             datadisplay.write(f"{0} Username : ".format(count))
