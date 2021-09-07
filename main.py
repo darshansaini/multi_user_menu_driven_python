@@ -1,4 +1,6 @@
 import plotly.express as px
+import pandas as pd
+import stdiomask
 
 def display():
     print("************************\n"
@@ -10,12 +12,19 @@ def display():
           "3. Users List \n"
           "************************\n"
           "------------------------\n")
-    choice = input()
+    #choice = int(input())
+    try:
+        choice = int(input())
+        if not choice:
+            raise ValueError('empty string')
+            display()
+    except ValueError as e:
+        print(e)
+        display()
 
+    if choice == 1:
 
-    if choice == "1":
-
-        user = input("Enter Username : ")
+        user = input("Enter Username: ")
         with open("data.txt","a+") as data:
             data.write("login attempt")
         with open("data.txt","r+") as data:
@@ -30,8 +39,9 @@ def display():
                 print("Invalid Username")
 
                 display()
-        password = input("Enter Password : ")
-
+        print("Enter",end=' ')
+        password = stdiomask.getpass(mask='*')
+        #password = input("Enter Password : ")
         with open("data.txt","r+") as data:
 
             temp = data.read()
@@ -56,7 +66,14 @@ def display():
                         key = input("Select your Choice ... ")
                         if key == "1":
                             print("for how many year's analyse you want : ")
-                            x = int(input())
+                            try:
+                                x = int(input())
+                                if not x:
+                                    raise ValueError('empty string')
+                                    login()
+                            except ValueError as e:
+                                print(e)
+                                login()
                             x_cord = []
                             y_cord = []
 
@@ -65,7 +82,15 @@ def display():
                                 y_cord.append(i)
                                 continue
                             for i in range(1, x + 1):
-                                a = float(input())
+                                try:
+                                    a = float(input())
+                                    if not a:
+                                        raise ValueError('empty string')
+                                        input("Hit enter to continue...")
+                                        login()
+                                except ValueError as e:
+                                    print(e)
+                                    login()
                                 x_cord.append(a)
 
                             x_cord_str = str(x_cord)
@@ -79,18 +104,30 @@ def display():
                                 salary.write("\n")
 
                             # Creating the Figure instance
-
-                            fig = px.line(x=x_cord, y=y_cord)
+                            df = pd.DataFrame(dict(
+                                x=x_cord,
+                                y=y_cord
+                            ))
+                            fig = px.line(x=x_cord, y=y_cord, title='Salary Analytics :',labels=dict(x="SALARY",y="YEARS"))
+                            fig2 = px.bar(x=x_cord, y=y_cord, title='Salary Analytics :',labels=dict(x="SALARY",y="YEARS"))
 
                             # showing the plot
-                            fig.write_html('first_figure.html', auto_open=True)
+                            fig.write_html('first_figure_line.html', auto_open=True)
+                            fig2.write_html('first_figure_bar.html', auto_open=True)
 
                             input("Hit Enter to continue...\n\n")
                             login()
 
                         elif key == "2":
                             print("for how many year's analyse you want : ")
-                            x = int(input())
+                            try:
+                                x = int(input())
+                                if not x:
+                                    raise ValueError('empty string')
+                                    login()
+                            except ValueError as e:
+                                print(e)
+                                login()
                             x_cord = []
                             y_cord = []
 
@@ -99,7 +136,16 @@ def display():
                                 y_cord.append(i)
                                 continue
                             for i in range(1, x + 1):
-                                a = float(input())
+
+                                try:
+                                    a = float(input())
+                                    if not a:
+                                        raise ValueError('empty string')
+                                        input("Hit enter to continue...")
+                                        login()
+                                except ValueError as e:
+                                    print(e)
+                                    login()
                                 x_cord.append(a)
 
                             x_cord_str = str(x_cord)
@@ -114,10 +160,12 @@ def display():
 
                             # Creating the Figure instance
 
-                            fig = px.line(x=x_cord, y=y_cord)
+                            fig = px.line(x=y_cord, y=x_cord, title= 'Student marks analytics :',labels=dict(x="MARKS",y="YEARS"))
+                            fig2 = px.bar(x=x_cord, y=y_cord, title='Student Analytics :',labels=dict(x="MARKS",y="YEARS"))
 
                             # showing the plot
-                            fig.write_html('first_figure.html', auto_open=True)
+                            fig.write_html('first_figure_line.html', auto_open=True)
+                            fig2.write_html('first_figure_bar.html', auto_open=True)
 
                             input("Hit Enter to continue...\n\n")
                             login()
@@ -152,7 +200,7 @@ def display():
 
                 display()
 
-    elif choice == "3":
+    elif choice == 3:
 
         with open("datadisplay.txt", "r+") as datadisplay:
 
@@ -161,7 +209,7 @@ def display():
 
             display()
 
-    elif choice == "2":
+    elif choice == 2:
         username = input("Enter a username to signup (No white Space allowed) : ")
         cred = input("Enter a password :((No white Space allowed))")
         count = 1
